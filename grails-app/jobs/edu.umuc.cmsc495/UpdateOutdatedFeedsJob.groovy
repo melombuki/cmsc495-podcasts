@@ -17,7 +17,7 @@ class UpdateOutdatedFeedsJob {
 
         // Update poscast feeds with lastModified older than 12 hours
         def allPodcasts = Podcast.list()
-        def timeDifference
+        def timeDifference // time in milliseconds
         allPodcasts.each {
             timeDifference = now.getTime() - new Date(it.lastModified).getTime()
             if (timeDifference >= hoursToMillis(12)) {
