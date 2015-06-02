@@ -29,7 +29,7 @@ class UpdateOutdatedFeedsJob {
     }
 
     // Returns the number of milliseconds in the parameter hours
-    private long hoursToMillis(long hours) {
+    private static long hoursToMillis(long hours) {
         return hours * 60 * 60 * 1000
     }
 }
