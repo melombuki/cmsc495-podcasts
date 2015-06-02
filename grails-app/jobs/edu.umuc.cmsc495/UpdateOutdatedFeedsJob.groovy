@@ -1,6 +1,8 @@
 package edu.umuc.cmsc495
 
 class UpdateOutdatedFeedsJob {
+    static int hoursUpdateInterval = 12 // number of hours before feed is "out of date"
+
     static triggers = {
         // Triggers update 0.5 seconds after start and never repeats
         simple name:'updateOutdatedFeedsTrigger', startDelay:500, repeatCount: 0
@@ -20,7 +22,7 @@ class UpdateOutdatedFeedsJob {
         def timeDifference // time in milliseconds
         allPodcasts.each {
             timeDifference = now.getTime() - new Date(Long.parseLong(it.lastModified)).getTime()
-            if (timeDifference >= hoursToMillis(12)) {
+            if (timeDifference >= hoursToMillis(hoursUpdateInterval)) {
                 podcastService.updatePodcast(it)
             }
         }
