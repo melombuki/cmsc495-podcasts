@@ -3,6 +3,7 @@ package edu.umuc.cmsc495
 class UpdateAllFeedsJob {
 
     static triggers = {
+    	cron name:'updateAllFeeds', cronExpression: ''0 0 */4 * * ?' // run every 4 hours
     }
 
     def execute() {

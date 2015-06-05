@@ -21,7 +21,7 @@ class UpdateOutdatedFeedsJob {
         def allPodcasts = Podcast.list()
         def timeDifference // time in milliseconds
         allPodcasts.each {
-            timeDifference = now.getTime() - new Date(Long.parseLong(it.lastModified)).getTime()
+            timeDifference = now.getTime() - it.lastUpdated.time // using last time the database record was updated
             if (timeDifference >= hoursToMillis(hoursUpdateInterval)) {
                 podcastService.updatePodcast(it)
             }
