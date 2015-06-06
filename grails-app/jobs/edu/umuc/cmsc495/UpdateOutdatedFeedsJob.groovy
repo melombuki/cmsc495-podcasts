@@ -6,9 +6,6 @@ class UpdateOutdatedFeedsJob {
     static triggers = {
         // Triggers update 0.5 seconds after start and never repeats
         simple name:'updateOutdatedFeedsTrigger', startDelay:500, repeatCount: 0
-
-        // Triggers update every 12 hours after the app is started (or any length of time)
-        //cron name:'updateDailyTrigger', startDelay:0, cronExpression: '0 0 12 1/1 * ? *'
     }
 
     def execute() {
