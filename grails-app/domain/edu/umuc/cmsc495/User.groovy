@@ -7,6 +7,7 @@ class User {
     static hasMany = [subscriptions:Subscription]
 
     static constraints = {
+        email unique:true
     }
 
     String email

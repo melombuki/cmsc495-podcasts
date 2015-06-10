@@ -78,10 +78,11 @@ class PodcastService {
             entry.publishedDate = feedEntry.publishedDate
             entry.title = feedEntry.title
             entry.description = feedEntry.description?.value?.trim()
-
-            println "${feedEntry.uri} / ${feedEntry.description.type} / ${feedEntry.description.value.length()}"
-
             entry.link = feedEntry.link
+
+            if(entry.link == null && (entry.guid.startsWith("http://") || entry.guid.startsWith("https://"))) {
+                entry.link = entry.guid
+            }
 
             if(feedEntry.enclosures) {
                 entry.file = feedEntry.enclosures[0].url
@@ -105,6 +106,7 @@ class PodcastService {
         def url = podcast.url.toURI().toURL()
         def conn = url.openConnection()
 
+        conn.setRequestProperty("User-Agent", "CMSC 495 Podcast Crawler")
         if(podcast.lastModified) {
             conn.setRequestProperty('If-Modified-Since', podcast.lastModified)
         }
