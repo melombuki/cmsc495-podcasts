@@ -1,6 +1,7 @@
 package edu.umuc.cmsc495
 
 class UpdateAllFeedsJob {
+    def podcastService
 
     static triggers = {
     	cron name:'updateAllFeeds', cronExpression: '0 0 */4 * * ?' // run every 4 hours
@@ -12,7 +13,7 @@ class UpdateAllFeedsJob {
         // Update all poscast feeds
         def allPodcasts = Podcast.list()
         allPodcasts.each {
-            PodcastService.updatePodcast(it)
+            podcastService.updatePodcast(it)
         }
 
         if (log.debugEnabled) log.debug "exit UpdateAllFeedsJob.execute()"

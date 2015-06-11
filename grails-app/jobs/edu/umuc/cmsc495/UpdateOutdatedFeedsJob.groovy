@@ -1,6 +1,8 @@
 package edu.umuc.cmsc495
 
 class UpdateOutdatedFeedsJob {
+    def podcastService
+
     static int hoursUpdateInterval = 12 // number of hours before feed is "out of date"
 
     static triggers = {
@@ -12,15 +14,8 @@ class UpdateOutdatedFeedsJob {
         // Get the current time
         def now = new Date()
 
-        //def allPodcasts = Podcast.list()
-
-        // Update poscast feeds with lastModified older than 12 hours
-        def podcastService = new PodcastService()
-
         // Get a list of the user's subscriptions
         def email = context.mergedJobDataMap.get('email')
-
-        println email
 
         def user = User.findByEmail(email)
 
@@ -37,8 +32,9 @@ class UpdateOutdatedFeedsJob {
         allPodcasts.each {
             timeDifference = now.getTime() - it.lastUpdated.time // using last time the database record was updated
             if (timeDifference >= hoursToMillis(hoursUpdateInterval)) {
-                podcastService.updatePodcast(it)
+                podcastService?.updatePodcast(it)
             }
+            println "Updated: ${it.url}"
         }
 
         if (log.debugEnabled) log.debug "exit UpdateOutdatedFeedsJob.execute()"
