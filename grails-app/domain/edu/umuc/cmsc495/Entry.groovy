@@ -6,6 +6,7 @@ class Entry {
 
     static constraints = {
         guid unique: true
+        link nullable:true
         publishedDate nullable:true
         summary nullable:true
         description nullable:true
