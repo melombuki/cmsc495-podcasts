@@ -12,7 +12,7 @@ class UpdateAllFeedsJob {
         // Update all poscast feeds
         def allPodcasts = Podcast.list()
         allPodcasts.each {
-            podcastService.updatePodcast(it)
+            PodcastService.updatePodcast(it)
         }
 
         if (log.debugEnabled) log.debug "exit UpdateAllFeedsJob.execute()"
