@@ -122,9 +122,9 @@ class PodcastService {
         if(responseCode != conn.HTTP_OK) {
             if(responseCode == conn.HTTP_NOT_MODIFIED) {
                 if(log.debugEnabled) log.debug "skipping ${podcast.url} because it has not changed"
-                return
+            } else {
+                log.error "error requesting ${podcast.url}: ${conn.responseMessage}"
             }
-            log.error "error requesting ${podcast.url}: ${conn.responseMessage}"
             return null
         }
 
