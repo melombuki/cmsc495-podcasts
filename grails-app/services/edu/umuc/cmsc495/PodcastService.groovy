@@ -120,6 +120,10 @@ class PodcastService {
         def responseCode = conn.responseCode
         if (log.debugEnabled) log.debug "responseCode: ${responseCode}"
         if(responseCode != conn.HTTP_OK) {
+            if(responseCode == conn.HTTP_NOT_MODIFIED) {
+                if(log.debugEnabled) log.debug "skipping ${podcast.url} because it has not changed"
+                return
+            }
             log.error "error requesting ${podcast.url}: ${conn.responseMessage}"
             return null
         }
