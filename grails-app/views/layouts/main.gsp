@@ -6,11 +6,6 @@
         <title><g:layoutTitle default="Grails"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <%--
-        <asset:stylesheet src="application.css"/>
-        <asset:javascript src="application.js"/>
-        --%>
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
         <!-- Optional theme -->
@@ -48,6 +43,7 @@
                             <li><g:link uri="/">Podcasts</g:link> </li>
                             <li><a href="#">Settings</a></li>
                             <li><a href="#">Profile</a></li>
+                            <li><g:link controller="logout">Logout</g:link></li>
                             <li><a href="#">Help</a></li>
                         </ul>
                         <form class="navbar-form navbar-right">
@@ -61,7 +57,5 @@
         <g:layoutBody/>
         <div class="footer" role="contentinfo"></div>
         <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
