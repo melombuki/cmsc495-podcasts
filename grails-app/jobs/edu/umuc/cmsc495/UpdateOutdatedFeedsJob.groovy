@@ -19,20 +19,15 @@ class UpdateOutdatedFeedsJob {
 
         def user = User.findByEmail(email)
 
-        def subscriptions = Subscription.findAllByUser(user)
-
         // Add the Podcast URLs to the list
-        def allPodcasts = []
-        subscriptions.each {
-            allPodcasts << Podcast.findById(it.id)
-        }
+        def allPodcasts = user.subscriptions*.podcast
 
         // Call update on each podcast
         def timeDifference // time in milliseconds
         allPodcasts.each {
-            timeDifference = now.getTime() - it.lastUpdated.time // using last time the database record was updated
+            timeDifference = now.time - it.lastUpdated.time // using last time the database record was updated
             if (timeDifference >= hoursToMillis(hoursUpdateInterval)) {
-                podcastService?.updatePodcast(it)
+                podcastService.updatePodcast(it)
             }
             println "Updated: ${it.url}"
         }
