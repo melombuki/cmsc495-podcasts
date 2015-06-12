@@ -22,6 +22,8 @@ class Podcast {
         description sqlType: 'longtext'
     }
 
+    static transients = ['newestEntry']
+
     String url
     String title
     String subtitle
@@ -39,4 +41,8 @@ class Podcast {
 
     Date dateCreated
     Date lastUpdated
+
+    Entry getNewestEntry() {
+        return Entry.executeQuery('select entry from Entry entry where podcast = :podcast group by podcast having max(publishedDate) > 0', [podcast:this])[0]
+    }
 }

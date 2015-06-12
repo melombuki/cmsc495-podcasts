@@ -42,15 +42,23 @@
                     <tr>
                         <th>Title</th>
                         <th>Author</th>
-                        <th>Description</th>
+                        <th style="width:50%;">Description</th>
+                        <th>Latest Episode</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${podcasts}">
+                    <g:each in="${podcasts}" var="podcast">
                         <tr>
-                            <td> ${it.title} </td>
-                            <td> ${it.author} </td>
-                            <td> ${it.subtitle} </td>
+                            <td> <g:fieldValue bean="${podcast}" field="title" /> <br/> <span style="font-size: 85%"><g:fieldValue bean="${podcast}" field="subtitle" /></span> </td>
+                            <td> <g:fieldValue bean="${podcast}" field="author" /> </td>
+                            <td>
+                                <g:fieldValue bean="${podcast}" field="description" />
+                            </td>
+                            <td>
+                                <g:set var="episode" value="${podcast.newestEntry}"/>
+                                <%--TODO: add link to play screen for this entry when the play screen exists --%>
+                                <g:fieldValue bean="${episode}" field="title" />
+                            </td>
                         </tr>
                     </g:each>
                     </tbody>

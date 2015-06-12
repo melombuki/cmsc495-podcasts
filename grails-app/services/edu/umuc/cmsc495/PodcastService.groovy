@@ -45,7 +45,7 @@ class PodcastService {
 
         podcast.title = syndFeed.title
         podcast.link = syndFeed.link
-        podcast.description = syndFeed.description?.value
+        podcast.description = syndFeed.description
         podcast.image = syndFeed.image?.url
 
         def itunesInfo = syndFeed.getModule(ITunes.URI)
