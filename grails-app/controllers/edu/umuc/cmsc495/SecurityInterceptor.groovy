@@ -9,13 +9,13 @@ class SecurityInterceptor {
     }
 
     boolean before() {
-        println "before"
         if(!session.user) {
             // this can be fixed for grails 3.0.2, see https://github.com/grails/grails-core/issues/600
             //redirect(controller: 'login')
 
             // this can be removed for grails 3.0.2
             response.setHeader("Refresh", "0; url=/login")
+            return false
         }
         true
     }
