@@ -11,9 +11,6 @@
     <meta name="layout" content="main"/>
     <title>Podcasts</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="Tom, Ben, Josh">
@@ -55,8 +52,11 @@
                     <tbody>
                     <g:each in="${podcasts}" var="podcast">
                         <tr>
-                            <td> <img src="<g:fieldValue bean="${podcast}" field="image" />" alt="cover" class="image-rounded"> </td>
-                            <td> <g:fieldValue bean="${podcast}" field="title" /> <br/> <span style="font-size: 85%"><g:fieldValue bean="${podcast}" field="subtitle" /></span> </td>
+                            <td>
+                                <%-- TODO: add link to episode list for this podcast when episode list screen exists --%>
+                                <g:fieldValue bean="${podcast}" field="title" /> <br/>
+                                <small><g:fieldValue bean="${podcast}" field="subtitle" /></small>
+                            </td>
                             <td> <g:fieldValue bean="${podcast}" field="author" /> </td>
                             <td>
                                 <g:fieldValue bean="${podcast}" field="description" />
