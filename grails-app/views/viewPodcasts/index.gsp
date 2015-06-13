@@ -56,7 +56,6 @@
                             <td>
                                 <%-- TODO: add link to episode list for this podcast when episode list screen exists --%>
                                 <g:fieldValue bean="${podcast}" field="title" /> <br/>
-                                <small><g:fieldValue bean="${podcast}" field="subtitle" /></small>
                             </td>
                             <td> <g:fieldValue bean="${podcast}" field="author" /> </td>
                             <td>
