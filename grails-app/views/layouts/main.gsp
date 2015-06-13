@@ -21,6 +21,17 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+        <style>
+        body {
+            padding-top:70px;
+        }
+
+        .page-header {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        </style>
+
         <g:layoutHead/>
 
     </head>
