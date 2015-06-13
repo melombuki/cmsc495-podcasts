@@ -52,6 +52,7 @@
                     <tbody>
                     <g:each in="${podcasts}" var="podcast">
                         <tr>
+                            <td> <img src="<g:fieldValue bean="${podcast}" field="image" />" alt="cover" class="image-rounded"> </td>
                             <td>
                                 <%-- TODO: add link to episode list for this podcast when episode list screen exists --%>
                                 <g:fieldValue bean="${podcast}" field="title" /> <br/>
