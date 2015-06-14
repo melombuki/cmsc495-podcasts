@@ -26,4 +26,29 @@ class LoginController {
 
         redirect(uri:'/')
     }
+
+    def create() {
+        def user = new User()
+        [user:user]
+    }
+
+    def save() {
+        def user = new User()
+        user.email = params.email
+        user.password = params.password
+
+        if(params.password != params.password2) {
+            user.errors.reject('user.password.dont.match', "Your passwords do not match, please try again.")
+            user.errors.rejectValue('password', 'user.password.dont.match', "Your passwords do not match, please try again.")
+        }
+
+        // NPE bug to work around: https://github.com/grails/grails-core/issues/698
+        if(user.hasErrors() || !user.validate()) {
+            render(view:'create', model:[user:user])
+            return
+        }
+        user.save()
+
+        redirect(action:'index')
+    }
 }

@@ -66,7 +66,7 @@
             <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>
             <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> <button class="btn btn-lg btn-default btn-block" onclick="document.location='${createLink(action:'create')}';return false;">Create Account</button>
         </g:form>
     </div>
 
