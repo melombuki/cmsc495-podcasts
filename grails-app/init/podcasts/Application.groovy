@@ -14,9 +14,14 @@ class Application extends GrailsAutoConfiguration implements EnvironmentAware {
     void setEnvironment(Environment env) {
         def res = "${System.getProperty('user.home')}/.grails/${env.getProperty("info.app.name")}LocalConfig.groovy" as File
 
+        println "\n\nChecking for local config: ${res.absolutePath}"
+
         if(res.exists()) {
+            println "Local config exists: ${res.absolutePath}"
             def config = new ConfigSlurper().parse( res.toURI().toURL() )
             env.propertySources.addFirst( new MapPropertySource("Local Config", config) )
+        } else {
+            println "!! Could not find local config: ${res.absolutePath}"
         }
     }
 }
