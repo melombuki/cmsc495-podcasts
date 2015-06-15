@@ -56,7 +56,7 @@
                             <li><a href="#">Settings</a></li>
                             <li><a href="#">Profile</a></li>
                             <li><g:link controller="logout">Logout</g:link></li>
-                            <li><a href="#">Help</a></li>
+                            <li><g:link uri="/Help">Help</g:link></li>
                         </ul>
                         <form class="navbar-form navbar-right">
                             <input type="text" class="form-control" placeholder="Search...">
