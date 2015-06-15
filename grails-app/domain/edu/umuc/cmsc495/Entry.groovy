@@ -21,6 +21,7 @@ class Entry {
     String link
     String title
     String file
+    String mimeType
     String summary
     String description
     Long duration = 0

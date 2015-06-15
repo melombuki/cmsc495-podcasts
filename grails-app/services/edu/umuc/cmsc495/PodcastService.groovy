@@ -86,6 +86,7 @@ class PodcastService {
 
             if(feedEntry.enclosures) {
                 entry.file = feedEntry.enclosures[0].url
+                entry.mimeType = feedEntry.enclosures[0].type
             }
 
             def itunesEntryInfo = feedEntry.getModule(ITunes.URI)

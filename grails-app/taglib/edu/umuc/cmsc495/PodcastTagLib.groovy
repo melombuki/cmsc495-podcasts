@@ -26,8 +26,8 @@ class PodcastTagLib {
         def duration = (entry.duration / 1000).toInteger() // convert to seconds
 
         def hours = (duration / secsInHour).toInteger()
-        def minutes = ((duration % secsInHour) / secsInMinute).toInteger()
-        def seconds = ((duration % secsInHour) % secsInMinute).toInteger()
+        def minutes = (duration / secsInMinute).toInteger() % secsInMinute
+        def seconds = (duration % secsInHour).toInteger()
 
         def formatter = NumberFormat.getInstance()
         formatter.maximumFractionDigits = 0

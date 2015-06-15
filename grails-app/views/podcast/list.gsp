@@ -9,9 +9,6 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Podcasts</title>
-
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="Tom, Ben, Josh">
 

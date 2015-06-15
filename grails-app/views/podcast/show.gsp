@@ -9,13 +9,10 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Podcasts</title>
-
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="Tom, Ben, Josh">
 
-    <title>${subscription.podcast.title}</title>
+    <title><g:fieldValue bean="${subscription.podcast}" field="title" /></title>
 
     <style>
         .image-rounded {
@@ -54,8 +51,7 @@
             <g:each in="${subscription.podcast.entries.sort { -it.publishedDate.time }}" var="entry">
                 <tr>
                     <td>
-                        <%-- TODO: add link to play episode for this podcast when play episode screen exists --%>
-                        <g:fieldValue bean="${entry}" field="title" /> <br/>
+                        <g:link action="play" id="${subscription.id}" params="[entry:entry.id]"><g:fieldValue bean="${entry}" field="title" /></g:link>
                     </td>
                     <td> <g:fieldValue bean="${entry}" field="summary" /> </td>
                     <td>

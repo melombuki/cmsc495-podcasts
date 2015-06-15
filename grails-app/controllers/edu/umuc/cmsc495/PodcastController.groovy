@@ -42,4 +42,19 @@ class PodcastController {
 
         return subscription
     }
+
+    def play() {
+        def subscription = getSubscription()
+        if(!subscription) {
+            return
+        }
+
+        def entry = subscription.podcast.entries.find { it.id == params.entry?.toLong() }
+        if(!entry) {
+            redirect(action:'show', id:subscription.id)
+            return
+        }
+
+        [subscription: subscription, entry:entry]
+    }
 }
