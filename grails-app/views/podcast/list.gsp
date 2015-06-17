@@ -38,7 +38,13 @@
 <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-            <li><a href="#">Add a subscription</a></li>
+            <li>
+                <g:form action="add" method="post" class="form-signin">
+                    <h5 class="form-signin-heading">Add a subscription</h5>
+                    <input type="podcastUrl" name="podcastUrl" id="podcastUrl" class="form-control" placeholder="Enter a Podcast URL" required autofocus>
+                    <button class="btn btn-sm btn-primary btn-block" type="submit">Subscribe</button>
+                </g:form>
+            </li>
         </ul>
     </div>
     <div class="col-sm-9 col-md-10 main">
