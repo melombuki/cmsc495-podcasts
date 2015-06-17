@@ -8,7 +8,8 @@ class UrlMappings {
         }
 
         "/"(controller:"podcast")
-        "/Help"(controller:"viewHelp")
+        "/help"(controller:"help")
+        "/settings"(controller:"settings")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

@@ -53,10 +53,9 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><g:link uri="/">Podcasts</g:link> </li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">Profile</a></li>
+                            <li><g:link uri="/settings">Settings</g:link>
                             <li><g:link controller="logout">Logout</g:link></li>
-                            <li><g:link uri="/Help">Help</g:link></li>
+                            <li><g:link uri="/help">Help</g:link></li>
                         </ul>
                         <form class="navbar-form navbar-right">
                             <input type="text" class="form-control" placeholder="Search...">

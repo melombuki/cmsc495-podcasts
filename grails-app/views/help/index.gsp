@@ -18,8 +18,7 @@
 </head>
 
 <body>
-    <h1> </h1>
-    <h1>Need some help?</h1>
+    <h1><br>Need some help?</h1>
     <h6>This section will show you everything you need to know.  It starts off with <br>
         explaining each section that you see at the top, and what all you can do there.
     </h6>
@@ -33,10 +32,6 @@
     <h6>TEXT</h6>
     <hr style="height:1px; border:none; color:#000; background-color:#000; width:100%; text-align:right; margin: 0 0 0 auto;">
     <h2>Settings</h2>
-    <h4>TOPIC</h4>
-    <h6>TEXT</h6>
-    <hr style="height:1px; border:none; color:#000; background-color:#000; width:100%; text-align:right; margin: 0 0 0 auto;">
-    <h2>Profile</h2>
     <h4>TOPIC</h4>
     <h6>TEXT</h6>
     <hr style="height:1px; border:none; color:#000; background-color:#000; width:100%; text-align:right; margin: 0 0 0 auto;">

@@ -1,6 +1,6 @@
 package podcasts
 
-class ViewHelpController {
+class HelpController {
 
     def index() { }
 }
