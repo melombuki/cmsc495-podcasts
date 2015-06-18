@@ -17,8 +17,6 @@
 
     <style>
     body {
-        padding-top: 40px;
-        padding-bottom: 40px;
         background-color: #eee;
     }
 
@@ -51,21 +49,17 @@
         margin:0;
     }
 
-    .update-account div input[type="email"] {
+    #email {
+        margin-bottom: 10px;
+    }
+
+    #password {
         margin-bottom: -1px;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
     }
 
-    .update-account div input[type="password1"] {
-        margin-bottom: -1px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-
-    .update-account div input[type="password2"] {
+    #password2 {
         margin-bottom: 10px;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
@@ -76,7 +70,7 @@
 
 
 <body>
-    <h2><br>Need to change you email or passowrd?  You can do that here.</h2>
+    <h1>Need to change you email or password?  You can do that here.</h1>
 
 <div class="container">
     <g:hasErrors bean="${user}">
@@ -89,12 +83,16 @@
         </div>
     </g:hasErrors>
 
+    <g:if test="${flash.message}">
+        <div class="alert alert-success">${flash.message}</div>
+    </g:if>
+
     <g:form action="updateEmail" method="post" class="update-account">
         <h2 class="update-account-heading">Update your email here</h2>
 
         <div class="form-group ${hasErrors(bean:user,field:'email','has-error')}">
             <label for="email" class="sr-only">Email address</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="Email address" value="${user?.email}" required autofocus>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email address" value="${user?.email}" required>
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>

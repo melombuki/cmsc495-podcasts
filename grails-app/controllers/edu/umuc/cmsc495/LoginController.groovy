@@ -38,7 +38,6 @@ class LoginController {
         user.password = params.password
 
         if(params.password != params.password2) {
-            user.errors.reject('user.password.dont.match', "Your passwords do not match, please try again.")
             user.errors.rejectValue('password', 'user.password.dont.match', "Your passwords do not match, please try again.")
         }
 
