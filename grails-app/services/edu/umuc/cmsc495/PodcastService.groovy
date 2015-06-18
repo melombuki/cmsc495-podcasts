@@ -22,6 +22,8 @@ class PodcastService {
         updatePodcast(podcast)
 
         if (log.debugEnabled) log.debug "exit updatePodcast(String)"
+
+        return podcast
     }
 
     def updatePodcast(Podcast podcast) {

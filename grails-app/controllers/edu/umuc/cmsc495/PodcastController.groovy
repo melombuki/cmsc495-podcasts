@@ -18,14 +18,24 @@ class PodcastController {
         }
         def podcastUrl = params.podcastUrl
 
-        //TODO: Validate the podcast URL
+        // some basic URL validation
+        try {
+            def url = new URL(podcastUrl)
+            if(!['http', 'https'].contains(url.getProtocol())) {
+                throw new IllegalArgumentException("URL (${podcastUrl} is not HTTP or HTTPS")
+            }
+        } catch (e) {
+            log.error e.message, e
+            flash.error = "Could not add new podcast subscription, ${podcastUrl} is not a valid URL."
+            redirect(action:'list')
+            return
+        }
 
         def podcast = Podcast.findByUrl(podcastUrl)
 
         // Add the podcast to the database if it doesn't exist
         if(!podcast) {
-            podcastService.updatePodcast(podcastUrl)
-            podcast = Podcast.findByUrl(podcastUrl)
+            podcast = podcastService.updatePodcast(podcastUrl)
         }
 
         def user = User.findByEmail(session.user)

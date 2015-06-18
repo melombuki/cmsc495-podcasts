@@ -35,6 +35,12 @@
 
 <body>
 
+<g:if test="${flash.error}">
+    <div class="alert alert-danger">
+        ${flash.error}
+    </div>
+</g:if>
+
 <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
