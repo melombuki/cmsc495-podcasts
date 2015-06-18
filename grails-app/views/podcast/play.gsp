@@ -34,9 +34,17 @@
         <img src="<g:fieldValue bean="${subscription.podcast}" field="image" />" alt="cover" class="image-rounded">
     </div>
 
-    <audio id="audioplayer" controls style="width: 50%; margin:1% 25%;">
-        <source src="${entry.file}" type="${entry.mimeType ?: ''}"/>
-    </audio>
+    <g:if test="${entry.mimeType.contains('video')}">
+        <video id="videoplayer" controls style="width: 50%; margin:1% 25%;">
+            <source src="${entry.file}" type="${entry.mimeType ?: ''}"/>
+        </video>
+    </g:if>
+    <g:else>
+        <audio id="audioplayer" controls style="width: 50%; margin:1% 25%;">
+            <source src="${entry.file}" type="${entry.mimeType ?: ''}"/>
+        </audio>
+    </g:else>
+
 
     <div style="margin:0 28%;">
         ${raw(entry.description)}

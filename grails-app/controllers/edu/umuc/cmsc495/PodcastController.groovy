@@ -35,12 +35,26 @@ class PodcastController {
 
         // Add the podcast to the database if it doesn't exist
         if(!podcast) {
-            podcast = podcastService.updatePodcast(podcastUrl)
+            try {
+                podcast = podcastService.updatePodcast(podcastUrl)
+            } catch (e) {
+                log.error e.message, e
+                flash.error = "Could not add new podcast subscription, ${podcastUrl} is not a valid Podcast."
+                redirect(action:'list')
+                return
+            }
+        }
+
+        // If the podcast was not created silently, then bail
+        if(podcast.id == null) {
+            flash.error = "Could not add new podcast subscription, ${podcastUrl} is not a valid Podcast."
+            redirect(action:'list')
+            return
         }
 
         def user = User.findByEmail(session.user)
 
-        println "Podcast.id = ${podcast.id}"
+        println "Podcast.id = ${podcast?.id}"
 
         // Prevent subscribing to the same podcast multiple times
         def podcastId = user.subscriptions.find() { it.podcast.id == podcast.id }
