@@ -22,8 +22,6 @@ class LoginController {
 
         session.user = user.email
 
-        UpdateOutdatedFeedsJob.triggerNow([email: user.email])
-
         redirect(uri:'/')
     }
 
