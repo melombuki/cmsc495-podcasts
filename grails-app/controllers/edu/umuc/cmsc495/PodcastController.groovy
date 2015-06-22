@@ -2,7 +2,6 @@ package edu.umuc.cmsc495
 
 class PodcastController {
     def podcastService
-    def updateAllFeedsJob
     static defaultAction = "list"
 
     def list() {
@@ -94,11 +93,12 @@ class PodcastController {
     }
 
     def updateSubscriptions(){
-        def allPodcasts = Podcast.list()
+        def currentUser = User.findByEmail(session.user)
+        def allSubscriptions = currentUser.subscriptions
 
-        allPodcasts.each{
-            podcastService.updatePodcast(it)
-            println "Updated " + it.title
+        allSubscriptions.each{
+            podcastService.updatePodcast(it.podcast)
+            println "Updated " + it.podcast.title
 
         }
 
