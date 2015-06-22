@@ -2,6 +2,7 @@ package edu.umuc.cmsc495
 
 class PodcastController {
     def podcastService
+    def updateAllFeedsJob
     static defaultAction = "list"
 
     def list() {
@@ -93,8 +94,15 @@ class PodcastController {
     }
 
     def updateSubscriptions(){
-        def updateAllFeedsJob = new UpdateAllFeedsJob()
-        updateAllFeedsJob.execute()
-        redirect(action:'list')
+        def allPodcasts = Podcast.list()
+
+        allPodcasts.each{
+            podcastService.updatePodcast(it)
+            println "Updated " + it.title
+
+        }
+
+        flash.message = "Updated subscriptions successfully."
+        redirect(action: 'list')
     }
 }
