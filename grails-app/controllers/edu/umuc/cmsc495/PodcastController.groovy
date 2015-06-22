@@ -91,4 +91,10 @@ class PodcastController {
 
         [subscription: subscription, entry:entry]
     }
+
+    def updateSubscriptions(){
+        def updateAllFeedsJob = new UpdateAllFeedsJob()
+        updateAllFeedsJob.execute()
+        redirect(action:'list')
+    }
 }
