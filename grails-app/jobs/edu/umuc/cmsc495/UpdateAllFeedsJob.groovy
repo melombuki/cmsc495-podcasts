@@ -8,12 +8,26 @@ class UpdateAllFeedsJob {
     }
 
     def execute() {
+        boolean isUsed = false
         if (log.debugEnabled) log.debug "entered UpdateAllFeedsJob.execute()"
 
         // Update all poscast feeds
+        def allSubscriptions = Subscription.list()
         def allPodcasts = Podcast.list()
         allPodcasts.each {
-            podcastService.updatePodcast(it)
+            def currentPodcast = it
+
+            allSubscriptions.each {
+                if (it.podcast.is(currentPodcast)) {
+                    podcastService.updatePodcast(it)
+                    isUsed = true
+                }
+            }
+            if (!isUsed){
+                println it.title + " was deleted."
+                currentPodcast.delete()
+            }
+            isUsed = false
         }
 
         if (log.debugEnabled) log.debug "exit UpdateAllFeedsJob.execute()"

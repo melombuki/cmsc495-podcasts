@@ -48,4 +48,16 @@ class SettingsController {
         }
         return true
     }
+
+    def askUser(){
+        render(view:'deleteAccount')
+    }
+
+    def deleteUser(){
+        def user = User.findByEmail(session.user)
+        user.delete()
+        session.invalidate()
+        redirect(uri: '/')
+
+    }
 }
