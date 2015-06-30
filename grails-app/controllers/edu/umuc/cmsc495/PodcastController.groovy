@@ -115,4 +115,18 @@ class PodcastController {
 
         [subscription: subscription, entry:entry]
     }
+
+    def updateSubscriptions(){
+        def currentUser = User.findByEmail(session.user)
+        def allSubscriptions = currentUser.subscriptions
+
+        allSubscriptions.each{
+            podcastService.updatePodcast(it.podcast)
+            println "Updated " + it.podcast.title
+
+        }
+
+        flash.message = "Updated subscriptions successfully."
+        redirect(action: 'list')
+    }
 }

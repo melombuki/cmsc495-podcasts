@@ -115,6 +115,12 @@
     </g:form>
 
 
+    <g:form action="askUser" method="post" class="update-account">
+        <h2 class="update-account-heading">Click here to delete the current user account</h2>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button>
+    </g:form>
+
+
 
 </div>
 

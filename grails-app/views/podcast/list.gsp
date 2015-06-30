@@ -50,6 +50,12 @@
                     <input type="podcastUrl" name="podcastUrl" id="podcastUrl" class="form-control" placeholder="Enter a Podcast URL" required autofocus>
                     <button class="btn btn-sm btn-primary btn-block" type="submit">Subscribe</button>
                 </g:form>
+
+
+                <g:form action="updateSubscriptions" method="post" class="form-signin">
+                    <h5 class="form-signin-heading">Update subscriptions</h5>
+                    <button class="btn btn-sm btn-primary btn-block" type="submit">Update</button>
+                </g:form>
             </li>
         </ul>
     </div>
