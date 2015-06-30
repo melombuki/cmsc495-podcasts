@@ -2,6 +2,8 @@ package edu.umuc.cmsc495
 
 class PodcastController {
     def podcastService
+    def updateAllFeedsJob
+
     static defaultAction = "list"
 
     def list() {
@@ -74,7 +76,19 @@ class PodcastController {
             return
         }
 
-        subscription.delete()
+        def podcastID = subscription.podcast.id
+
+        subscription.delete(flush: true)
+
+        def allSubscribedPodcasts = Subscription.list().collect {it.podcast.id}
+
+        // Check for any remaining subscriptions, delete podcast if none
+        if(!allSubscribedPodcasts.contains(podcastID)) {
+            def podcastToDelete = Podcast.findById(podcastID)
+            podcastToDelete.entries*.delete()
+            podcastToDelete.delete()
+        }
+
         redirect(action:'list')
     }
 
