@@ -2,5 +2,9 @@ package podcasts
 
 class HelpController {
 
-    def index() { }
+    static defaultAction = "help"
+
+    def help() {
+
+    }
 }
