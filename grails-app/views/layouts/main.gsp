@@ -57,9 +57,11 @@
                             <li><g:link controller="logout">Logout</g:link></li>
                             <li><g:link uri="/help">Help</g:link></li>
                         </ul>
+                        <%--
                         <form class="navbar-form navbar-right">
                             <input type="text" class="form-control" placeholder="Search...">
                         </form>
+                        --%>
                     </div>
                 </div>
             </nav>

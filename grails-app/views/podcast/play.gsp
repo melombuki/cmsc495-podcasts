@@ -27,6 +27,12 @@
 </head>
 
 <body>
+    <ol class="breadcrumb">
+        <li><g:link action="list">Podcast List</g:link></li>
+        <li><g:link action="show" id="${subscription.id}"><g:fieldValue bean="${subscription.podcast}" field="title" /></g:link></li>
+        <li class="active"><g:fieldValue bean="${entry}" field="title" /></li>
+    </ol>
+
     <h1>
         <g:fieldValue bean="${entry}" field="title" />
     </h1>

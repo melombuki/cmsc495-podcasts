@@ -85,7 +85,6 @@ class PodcastController {
         // Check for any remaining subscriptions, delete podcast if none
         if(!allSubscribedPodcasts.contains(podcastID)) {
             def podcastToDelete = Podcast.findById(podcastID)
-            podcastToDelete.entries*.delete()
             podcastToDelete.delete()
         }
 

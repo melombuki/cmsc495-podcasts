@@ -28,13 +28,18 @@
 </head>
 
 <body>
+    <ol class="breadcrumb">
+        <li><g:link action="list">Podcast List</g:link></li>
+        <li class="active"><g:fieldValue bean="${subscription.podcast}" field="title" /></li>
+    </ol>
+
     <h1>
         <g:fieldValue bean="${subscription.podcast}" field="title" />
     </h1>
+
     <div style="text-align: center;">
         <img src="<g:fieldValue bean="${subscription.podcast}" field="image" />" alt="cover" class="image-rounded">
     </div>
-
 
     <h2 class="page-header">Episodes</h2>
     <div class="table-responsive">

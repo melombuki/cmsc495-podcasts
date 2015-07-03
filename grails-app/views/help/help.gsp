@@ -42,7 +42,9 @@
 <div class="tab-content">
     <div class="tab-pane active" id="podcasts">
         <h3>Podcast Page</h3>
+        <p>
         From the Podcast page, which is pictured above, you can view all of your current subscriptions, add new podcasts, delete old ones, and access all other pages within the Podcast App. Each of your current subscriptions will be listed in alphabetical order. For each subscription, the podcast image, title, author, a short description, and the latest episode are displayed on the page. Clicking on the title of a podcast subscription will take you to the Podcast Episodes page with all of the available episodes. From the Podcast page you can also navigate to the Settings page, Help page, or logout by clicking the corresponding tabs on the navigation bar.
+        </p>
 
         <div class="panel-group" id="PodcastPageaccordion">
             <div class="panel panel-default">
@@ -64,11 +66,9 @@
                         </ol>
                     </div>
                 </div>
-            </div>
-            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#PodcastPagecollapseTwo">
+                        <a data-toggle="collapse" data-parent="#PodcastPageaccordion" href="#PodcastPagecollapseTwo">
                             Delete a subscription
                         </a>
                     </h4>
@@ -86,11 +86,9 @@
                         </ol>
                     </div>
                 </div>
-            </div>
-            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#PodcastPagecollapseThree">
+                        <a data-toggle="collapse" data-parent="#PodcastPageaccordion" href="#PodcastPagecollapseThree">
                             Play a Podcast Episode
                         </a>
                     </h4>
@@ -112,7 +110,9 @@
 
     <div class="tab-pane" id="settings">
         <h3>Settings Page</h3>
+        <p>
         The Settings page allows you to change your registered email address and password. There are two different forms presented in the middle of the page to edit each setting respectively. Your currently registered email address will appear in the box under the heading “Update your email here.” Your password will not be displayed to ensure its security. The Settings page is shown below.
+        </p>
         <div class="panel-group" id="Settingsaccordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -161,7 +161,9 @@
 
     <div class="tab-pane" id="logout">
         <h3>Logging Out</h3>
+        <p>
         You can logout from any page within the Podcast applicaiton. After logging out, you will be redirected to the Login page.
+        </p>
         <div class="panel-group" id="Logoutaccordion">
             <div class="panel panel-default">
                 <div class="panel-heading">

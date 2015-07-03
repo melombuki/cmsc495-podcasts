@@ -35,6 +35,10 @@
 
 <body>
 
+<ol class="breadcrumb">
+    <li class="active">Podcast List</li>
+</ol>
+
 <g:if test="${flash.error}">
     <div class="alert alert-danger">
         ${flash.error}
