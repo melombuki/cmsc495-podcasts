@@ -155,6 +155,24 @@
                         </ol>
                     </div>
                 </div>
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#Settingsaccordion" href="#SettingscollapseThree">
+                            Deleting User Account
+                        </a>
+                    </h4>
+                </div>
+                <div id="SettingscollapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Deleting your user account will remove all of your subscriptions and you will not be able to automatically recover them if you decide to create an account again later. Ensure you are aware of the consequences before deleting your account.<br>
+                        To delete your user account:
+                        <ol>
+                            <li>Click on the “Delete” button under the last heading, “Click here to delete current user account.” You will be redirected to a new page asking you to confirm deleting your account.</li>
+                            <li>On the new page, click the “Delete” button under the heading “Are you sure you want to delete this account?” You will be redirected to the login screen. Click the back button in your browser or any tab in the navigation bar to cancel deleting your user account.</li>
+                            <li>You have successfully deleted your user account.</li>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
