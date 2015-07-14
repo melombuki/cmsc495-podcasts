@@ -15,7 +15,7 @@
     <title>Podcasts</title>
 
     <style>
-        .image-rounded {
+        .img-rounded {
             width: 140px;
             height: 140px;
         }
@@ -87,7 +87,7 @@
                             <td class="deleteField" style="display:none;">
                                 <g:link action="delete" id="${subscription.id}" onclick="return confirm('Are you sure you want to delete your subscription to ${subscription.podcast.title}?');"><asset:image src="sign-delete-icon.png" width="48" height="48" /></g:link>
                             </td>
-                            <td> <img src="<g:fieldValue bean="${subscription.podcast}" field="image" />" alt="cover" class="image-rounded"> </td>
+                            <td> <img src="<g:fieldValue bean="${subscription.podcast}" field="image" />" alt="cover" class="img-rounded"> </td>
                             <td>
                                 <g:link action="show" id="${subscription.id}"><g:fieldValue bean="${subscription.podcast}" field="title" /></g:link>
                             </td>
