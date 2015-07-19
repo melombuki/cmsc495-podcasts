@@ -15,7 +15,7 @@
     <title><g:fieldValue bean="${entry}" field="title" /></title>
 
     <style>
-        .image-rounded {
+        .img-rounded {
             width: 500px;
             height: 500px;
         }
@@ -37,7 +37,7 @@
         <g:fieldValue bean="${entry}" field="title" />
     </h1>
     <div style="text-align: center;">
-        <img src="<g:fieldValue bean="${subscription.podcast}" field="image" />" alt="cover" class="image-rounded">
+        <img src="<g:fieldValue bean="${subscription.podcast}" field="image" />" alt="cover" class="img-rounded">
     </div>
 
     <g:if test="${entry.mimeType.contains('video')}">
