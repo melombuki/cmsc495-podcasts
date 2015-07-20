@@ -45,6 +45,10 @@
     </div>
 </g:if>
 
+<g:if test="${flash.message}">
+    <div class="alert alert-success">${flash.message}</div>
+</g:if>
+
 <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">

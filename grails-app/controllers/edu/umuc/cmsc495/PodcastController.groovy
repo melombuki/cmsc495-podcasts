@@ -65,6 +65,10 @@ class PodcastController {
             subscription.user = user
             subscription.podcast = podcast
             subscription.save()
+
+            flash.message = "You have successfully subscribed to ${podcast.title}"
+        } else {
+            flash.error = "You are already subscribed to ${podcast.title}"
         }
 
         redirect(action:'list')
@@ -82,11 +86,15 @@ class PodcastController {
 
         def allSubscribedPodcasts = Subscription.list().collect {it.podcast.id}
 
+        def podcastName = ''
         // Check for any remaining subscriptions, delete podcast if none
         if(!allSubscribedPodcasts.contains(podcastID)) {
             def podcastToDelete = Podcast.findById(podcastID)
+            podcastName = podcastToDelete.title
             podcastToDelete.delete()
         }
+
+        flash.message = "Successfully deleted subscription to ${podcastName}"
 
         redirect(action:'list')
     }
